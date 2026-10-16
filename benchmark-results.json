@@ -1,0 +1,1184 @@
+{
+  "schema_version": 1,
+  "updated": "2026-10-15",
+  "metric": "task_success_rate",
+  "aggregation": "macro_average_over_tasks",
+  "sources": {
+    "reported_20261014": {
+      "label": "Author-reported aggregate counts, 14 Oct 2026",
+      "kind": "reported"
+    },
+    "plush_archive": {
+      "label": "Six annotated plush episodes: three with history; three with history, automatic feedback and joint planner",
+      "kind": "episode_annotations"
+    },
+    "reported_20261014_supplement": {
+      "label": "Author-reported supplemental counts, 14 Oct 2026",
+      "kind": "reported"
+    }
+  },
+  "conditions": [
+    {
+      "id": "astra_final",
+      "label": "Astra · final harness",
+      "color": "#216d58",
+      "visible": true
+    },
+    {
+      "id": "astra_memory",
+      "label": "Astra · memory",
+      "color": "#5495a6",
+      "visible": true
+    },
+    {
+      "id": "astra_vanilla",
+      "label": "Astra · vanilla",
+      "color": "#9baca0",
+      "visible": true
+    },
+    {
+      "id": "opus_memory",
+      "label": "Opus 5.5 · memory",
+      "color": "#ba7651",
+      "visible": true
+    },
+    {
+      "id": "opus_vanilla",
+      "label": "Opus 5.5 · vanilla",
+      "color": "#d5ae91",
+      "visible": false
+    },
+    {
+      "id": "sol_memory",
+      "label": "Sol 5.6 · memory",
+      "color": "#8375a6",
+      "visible": true
+    },
+    {
+      "id": "sol_vanilla",
+      "label": "Sol 5.6 · vanilla",
+      "color": "#b5abc9",
+      "visible": false
+    }
+  ],
+  "axes": {
+    "capabilities": [
+      {
+        "id": "fine",
+        "label": "Fine manipulation"
+      },
+      {
+        "id": "long",
+        "label": "Long horizon"
+      },
+      {
+        "id": "tool",
+        "label": "Tool use"
+      },
+      {
+        "id": "bimanual",
+        "label": "Bimanual coordination"
+      },
+      {
+        "id": "spatial",
+        "label": "Spatial reasoning"
+      },
+      {
+        "id": "force",
+        "label": "Force control"
+      }
+    ],
+    "objects": [
+      {
+        "id": "rigid",
+        "label": "Rigid"
+      },
+      {
+        "id": "fragile",
+        "label": "Fragile"
+      },
+      {
+        "id": "deformable",
+        "label": "Deformable"
+      },
+      {
+        "id": "assembly",
+        "label": "Articulated & assembled",
+        "label_lines": [
+          "Articulated &",
+          "assembled"
+        ],
+        "description": "Objects with linked or mating parts: keys on a ring, drawers in a cabinet, and a screw in a threaded assembly."
+      }
+    ]
+  },
+  "notes": [
+    "Blank cells are missing, not failed trials. Zero is a measured result.",
+    "Progress is author-reported subgoal completion (%) and is separate from episode success.",
+    "Capability categories follow the author-defined six-category mapping. Each task has exactly one primary object category; tools do not add extra object tags.",
+    "Final harness is a task-specific configuration. It is not a single matched ablation across all tasks.",
+    "Rows combine author-reported aggregate counts and separately annotated plush episodes, not a matched benchmark.",
+    "The earlier grasping section offers a separate log-derived cohort. These counts are not pooled with that export. Sponge examples have six annotated successes, but their configuration has not yet been assigned to these comparison columns.",
+    "Articulated & assembled covers linked or mating parts, including keys on a ring, drawers and threaded fasteners. Search with memory is included in this category."
+  ],
+  "tasks": [
+    {
+      "id": "pick_ball",
+      "label": "Pick up a ping-pong ball",
+      "capabilities": [
+        "fine"
+      ],
+      "objects": [
+        "rigid"
+      ],
+      "note": null,
+      "results": {
+        "astra_final": {
+          "successes": 3,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "astra_memory": {
+          "successes": 2,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "astra_vanilla": {
+          "successes": 2,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "opus_memory": {
+          "successes": 1,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "opus_vanilla": {
+          "successes": 2,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "sol_memory": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "sol_vanilla": {
+          "successes": 1,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        }
+      }
+    },
+    {
+      "id": "pick_cable_tie",
+      "label": "Pick up a cable tie",
+      "capabilities": [
+        "fine"
+      ],
+      "objects": [
+        "deformable"
+      ],
+      "note": null,
+      "results": {
+        "astra_final": {
+          "successes": 2,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "astra_memory": {
+          "successes": 3,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "astra_vanilla": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "opus_memory": {
+          "successes": 1,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "opus_vanilla": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "sol_memory": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "sol_vanilla": {
+          "successes": 1,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        }
+      }
+    },
+    {
+      "id": "pick_key",
+      "label": "Pick up keys on a ring",
+      "capabilities": [
+        "fine"
+      ],
+      "objects": [
+        "assembly"
+      ],
+      "note": null,
+      "results": {
+        "astra_final": {
+          "successes": 3,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "astra_memory": {
+          "successes": 3,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "astra_vanilla": {
+          "successes": 0,
+          "trials": 2,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "opus_memory": {
+          "successes": 1,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "opus_vanilla": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "sol_memory": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "sol_vanilla": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        }
+      }
+    },
+    {
+      "id": "pick_hex_key",
+      "label": "Pick up an L-shaped hex key",
+      "capabilities": [
+        "fine"
+      ],
+      "objects": [
+        "rigid"
+      ],
+      "note": null,
+      "results": {
+        "astra_final": {
+          "successes": 2,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "astra_memory": {
+          "successes": 2,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "astra_vanilla": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "opus_memory": {
+          "successes": 2,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "opus_vanilla": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "sol_memory": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "sol_vanilla": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        }
+      }
+    },
+    {
+      "id": "stand_bottle",
+      "label": "Stand up a bottle",
+      "capabilities": [
+        "spatial"
+      ],
+      "objects": [
+        "rigid"
+      ],
+      "note": null,
+      "results": {
+        "astra_final": {
+          "successes": 2,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "astra_memory": {
+          "successes": 2,
+          "trials": 3,
+          "progress": 92,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "astra_vanilla": {
+          "successes": 0,
+          "trials": 4,
+          "progress": 25,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "opus_memory": {
+          "successes": 0,
+          "trials": 3,
+          "progress": 58,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "opus_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "sol_memory": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014_supplement",
+          "note": null
+        },
+        "sol_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        }
+      }
+    },
+    {
+      "id": "out_of_reach_plush",
+      "label": "Bring a plush toy into reach",
+      "capabilities": [
+        "spatial"
+      ],
+      "objects": [
+        "deformable"
+      ],
+      "note": null,
+      "results": {
+        "astra_final": {
+          "successes": 3,
+          "trials": 3,
+          "progress": null,
+          "status": "annotated",
+          "source": "plush_archive",
+          "note": "History + automatic feedback + joint planner; experience reuse is not independently established by this configuration."
+        },
+        "astra_memory": {
+          "successes": 3,
+          "trials": 3,
+          "progress": null,
+          "status": "annotated",
+          "source": "plush_archive",
+          "note": null
+        },
+        "astra_vanilla": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014_supplement",
+          "note": null
+        },
+        "opus_memory": {
+          "successes": 3,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014_supplement",
+          "note": null
+        },
+        "opus_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "sol_memory": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014_supplement",
+          "note": null
+        },
+        "sol_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        }
+      }
+    },
+    {
+      "id": "bread_tongs",
+      "label": "Transfer bread with tongs",
+      "capabilities": [
+        "long",
+        "tool",
+        "force"
+      ],
+      "objects": [
+        "deformable"
+      ],
+      "note": null,
+      "results": {
+        "astra_final": {
+          "successes": 3,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "astra_memory": {
+          "successes": 1,
+          "trials": 3,
+          "progress": 50,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "astra_vanilla": {
+          "successes": 0,
+          "trials": 3,
+          "progress": 33,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "opus_memory": {
+          "successes": 1,
+          "trials": 3,
+          "progress": 50,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "opus_vanilla": {
+          "successes": 0,
+          "trials": 3,
+          "progress": 33,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "sol_memory": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "sol_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        }
+      },
+      "category_note": "Force control includes regulating the gripper opening angle while manipulating bread with tongs."
+    },
+    {
+      "id": "potato_chip",
+      "label": "Move a potato chip intact",
+      "capabilities": [
+        "force"
+      ],
+      "objects": [
+        "fragile"
+      ],
+      "note": null,
+      "results": {
+        "astra_final": {
+          "successes": 1,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014_supplement",
+          "note": null
+        },
+        "astra_memory": {
+          "successes": 0,
+          "trials": 3,
+          "progress": 50,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "astra_vanilla": {
+          "successes": 0,
+          "trials": 3,
+          "progress": 33,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "opus_memory": {
+          "successes": 0,
+          "trials": 2,
+          "progress": 0,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "opus_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "sol_memory": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014_supplement",
+          "note": null
+        },
+        "sol_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        }
+      }
+    },
+    {
+      "id": "sweep_trash",
+      "label": "Sweep up trash",
+      "capabilities": [
+        "long",
+        "tool",
+        "bimanual"
+      ],
+      "objects": [
+        "rigid"
+      ],
+      "note": null,
+      "results": {
+        "astra_final": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014_supplement",
+          "note": null
+        },
+        "astra_memory": {
+          "successes": 0,
+          "trials": 3,
+          "progress": 33,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "astra_vanilla": {
+          "successes": 0,
+          "trials": 3,
+          "progress": 33,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "opus_memory": {
+          "successes": 0,
+          "trials": 3,
+          "progress": 25,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "opus_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "sol_memory": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014_supplement",
+          "note": null
+        },
+        "sol_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        }
+      }
+    },
+    {
+      "id": "fold_towel_in_half",
+      "label": "Fold a towel in half",
+      "capabilities": [
+        "bimanual"
+      ],
+      "objects": [
+        "deformable"
+      ],
+      "note": null,
+      "results": {
+        "astra_final": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014_supplement",
+          "note": null
+        },
+        "astra_memory": {
+          "successes": 0,
+          "trials": 3,
+          "progress": 50,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "astra_vanilla": {
+          "successes": 0,
+          "trials": 3,
+          "progress": 17,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "opus_memory": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014_supplement",
+          "note": null
+        },
+        "opus_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "sol_memory": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014_supplement",
+          "note": null
+        },
+        "sol_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        }
+      }
+    },
+    {
+      "id": "sort_trash_toiletry",
+      "label": "Sort trash and toiletries",
+      "capabilities": [
+        "long"
+      ],
+      "objects": [
+        "rigid"
+      ],
+      "note": null,
+      "results": {
+        "astra_final": {
+          "successes": 3,
+          "trials": 3,
+          "progress": 100,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "astra_memory": {
+          "successes": 1,
+          "trials": 3,
+          "progress": 44,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "astra_vanilla": {
+          "successes": 0,
+          "trials": 3,
+          "progress": 22,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "opus_memory": {
+          "successes": 0,
+          "trials": 3,
+          "progress": 56,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "opus_vanilla": {
+          "successes": 0,
+          "trials": 3,
+          "progress": 30,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "sol_memory": {
+          "successes": 0,
+          "trials": 3,
+          "progress": 22,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "sol_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        }
+      }
+    },
+    {
+      "id": "memory_search",
+      "label": "Search with memory",
+      "capabilities": [
+        "long"
+      ],
+      "objects": [
+        "assembly"
+      ],
+      "note": "Object taxonomy awaits confirmation.",
+      "results": {
+        "astra_final": {
+          "successes": 2,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014_supplement",
+          "note": null
+        },
+        "astra_memory": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "astra_vanilla": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014",
+          "note": null
+        },
+        "opus_memory": {
+          "successes": 2,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014_supplement",
+          "note": null
+        },
+        "opus_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "sol_memory": {
+          "successes": 0,
+          "trials": 3,
+          "progress": null,
+          "status": "reported",
+          "source": "reported_20261014_supplement",
+          "note": null
+        },
+        "sol_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        }
+      }
+    },
+    {
+      "id": "barbecue",
+      "label": "Follow barbecue instructions",
+      "capabilities": [],
+      "objects": [
+        "rigid"
+      ],
+      "note": "Qualitative example; aggregate results and object taxonomy are not yet supplied.",
+      "results": {
+        "astra_final": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "astra_memory": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "astra_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "opus_memory": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "opus_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "sol_memory": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "sol_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        }
+      }
+    },
+    {
+      "id": "sponge_path",
+      "label": "Follow a demonstrated sponge path",
+      "capabilities": [],
+      "objects": [
+        "deformable"
+      ],
+      "note": "Square and triangle examples each have 3/3 annotated successes. Their demonstration/history configuration has not yet been mapped to the seven comparison columns; leave these aggregates blank until reconciled.",
+      "results": {
+        "astra_final": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "astra_memory": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "astra_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "opus_memory": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "opus_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "sol_memory": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "sol_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        }
+      }
+    },
+    {
+      "id": "tighten_hex_screw",
+      "label": "Tighten a screw with a hex key",
+      "capabilities": [
+        "long",
+        "tool"
+      ],
+      "objects": [
+        "assembly"
+      ],
+      "note": "Qualitative example; separate from picking up the hex key. Aggregate results are not yet supplied.",
+      "results": {
+        "astra_final": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "astra_memory": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "astra_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "opus_memory": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "opus_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "sol_memory": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        },
+        "sol_vanilla": {
+          "successes": null,
+          "trials": null,
+          "progress": null,
+          "status": "missing",
+          "source": null,
+          "note": null
+        }
+      }
+    }
+  ],
+  "capability_taxonomy": {
+    "source": "Author-defined categories, 14 Oct 2026",
+    "unassigned": [
+      "barbecue",
+      "sponge_path"
+    ],
+    "note": "No context-following category; unassigned tasks remain in the results list."
+  },
+  "object_taxonomy": {
+    "assignment": "exactly_one_per_task",
+    "rule": "Assign each task to one primary interaction-object category based on the task-relevant mechanical property. Do not add a second category for the tool or for the material of an assembly. Capability tags remain multi-label.",
+    "rationale": {
+      "pick_key": "The keys and ring are treated as one linked assembly.",
+      "bread_tongs": "Classify the deformable bread target; the tongs do not add a rigid category.",
+      "memory_search": "A drawer and cabinet are articulated parts of one assembly.",
+      "tighten_hex_screw": "The target is a screw–socket/threaded assembly, rather than the rigid hex-key tool.",
+      "barbecue": "The recorded skewers/food props are handled as rigid units.",
+      "sweep_trash": "The sweeping setup uses rigid debris and a broom/dustpan.",
+      "sort_trash_toiletry": "Use rigid for the primary discrete items and containers in this mixed-object setup."
+    }
+  }
+}

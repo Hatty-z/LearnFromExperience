@@ -1,0 +1,105 @@
+category,model,block,task,condition,successes,trials,success_rate_percent,note
+Fine manipulation,Astra,Left / only block,pick_ball,No video · No history,3,6,50.0,
+Fine manipulation,Astra,Left / only block,pick_ball,No video · History,2,4,50.0,
+Fine manipulation,Astra,Left / only block,pick_ball,Video · No history,5,6,83.33,
+Fine manipulation,Astra,Left / only block,pick_ball,Video · History,4,5,80.0,
+Fine manipulation,Astra,Right block,pick_ball,No video · No history,2,3,66.67,
+Fine manipulation,Astra,Right block,pick_ball,No video · History,2,3,66.67,
+Fine manipulation,Astra,Right block,pick_ball,Video · No history,2,3,66.67,
+Fine manipulation,Astra,Right block,pick_ball,Video · History,2,3,66.67,
+Fine manipulation,Astra,Left / only block,pick_cable_tie,No video · No history,0,4,0.0,
+Fine manipulation,Astra,Left / only block,pick_cable_tie,No video · History,4,4,100.0,
+Fine manipulation,Astra,Left / only block,pick_cable_tie,Video · No history,1,4,25.0,
+Fine manipulation,Astra,Left / only block,pick_cable_tie,Video · History,2,4,50.0,
+Fine manipulation,Astra,Right block,pick_cable_tie,No video · No history,0,3,0.0,
+Fine manipulation,Astra,Right block,pick_cable_tie,No video · History,3,3,100.0,
+Fine manipulation,Astra,Right block,pick_cable_tie,Video · No history,0,3,0.0,
+Fine manipulation,Astra,Right block,pick_cable_tie,Video · History,1,3,33.33,
+Fine manipulation,Astra,Left / only block,pick_key,No video · No history,0,4,0.0,
+Fine manipulation,Astra,Left / only block,pick_key,No video · History,4,5,80.0,
+Fine manipulation,Astra,Left / only block,pick_key,Video · No history,0,5,0.0,
+Fine manipulation,Astra,Left / only block,pick_key,Video · History,4,6,66.67,
+Fine manipulation,Astra,Right block,pick_key,No video · No history,0,2,0.0,
+Fine manipulation,Astra,Right block,pick_key,No video · History,3,3,100.0,
+Fine manipulation,Astra,Right block,pick_key,Video · No history,0,3,0.0,
+Fine manipulation,Astra,Right block,pick_key,Video · History,2,3,66.67,
+Fine manipulation,Astra,Left / only block,pick_hex_screw,No video · No history,2,5,40.0,Check required
+Fine manipulation,Astra,Left / only block,pick_hex_screw,No video · History,4,5,80.0,Check required
+Fine manipulation,Astra,Left / only block,pick_hex_screw,Video · No history,1,5,20.0,Check required
+Fine manipulation,Astra,Left / only block,pick_hex_screw,Video · History,5,5,100.0,Check required
+Fine manipulation,Astra,Right block,pick_hex_screw,No video · No history,0,3,0.0,Check required
+Fine manipulation,Astra,Right block,pick_hex_screw,No video · History,2,3,66.67,Check required
+Fine manipulation,Astra,Right block,pick_hex_screw,Video · No history,0,3,0.0,Check required
+Fine manipulation,Astra,Right block,pick_hex_screw,Video · History,3,3,100.0,Check required
+Fine manipulation,Opus 5.5,Right block,pick_ball,No video · No history,2,3,66.67,
+Fine manipulation,Opus 5.5,Right block,pick_ball,No video · History,1,3,33.33,
+Fine manipulation,Opus 5.5,Right block,pick_ball,Video · No history,1,3,33.33,
+Fine manipulation,Opus 5.5,Right block,pick_ball,Video · History,1,3,33.33,
+Fine manipulation,Opus 5.5,Right block,pick_cable_tie,No video · No history,0,3,0.0,
+Fine manipulation,Opus 5.5,Right block,pick_cable_tie,No video · History,1,3,33.33,
+Fine manipulation,Opus 5.5,Right block,pick_cable_tie,Video · No history,0,3,0.0,
+Fine manipulation,Opus 5.5,Right block,pick_cable_tie,Video · History,2,3,66.67,
+Fine manipulation,Opus 5.5,Right block,pick_key,No video · No history,0,3,0.0,
+Fine manipulation,Opus 5.5,Right block,pick_key,No video · History,1,3,33.33,
+Fine manipulation,Opus 5.5,Right block,pick_key,Video · No history,0,3,0.0,
+Fine manipulation,Opus 5.5,Right block,pick_key,Video · History,1,3,33.33,
+Fine manipulation,Opus 5.5,Right block,pick_hex_screw,No video · No history,0,3,0.0,Check required
+Fine manipulation,Opus 5.5,Right block,pick_hex_screw,No video · History,2,3,66.67,Check required
+Fine manipulation,Opus 5.5,Right block,pick_hex_screw,Video · No history,0,2,0.0,Check required
+Fine manipulation,Opus 5.5,Right block,pick_hex_screw,Video · History,2,3,66.67,Check required
+Fine manipulation,Sol-5.6,Right block,pick_ball,No video · No history,1,3,33.33,
+Fine manipulation,Sol-5.6,Right block,pick_ball,No video · History,0,3,0.0,
+Fine manipulation,Sol-5.6,Right block,pick_ball,Video · No history,2,3,66.67,
+Fine manipulation,Sol-5.6,Right block,pick_ball,Video · History,0,3,0.0,
+Fine manipulation,Sol-5.6,Right block,pick_cable_tie,No video · No history,1,3,33.33,
+Fine manipulation,Sol-5.6,Right block,pick_cable_tie,No video · History,0,3,0.0,
+Fine manipulation,Sol-5.6,Right block,pick_cable_tie,Video · No history,0,3,0.0,
+Fine manipulation,Sol-5.6,Right block,pick_cable_tie,Video · History,0,3,0.0,
+Fine manipulation,Sol-5.6,Right block,pick_key,No video · No history,0,3,0.0,
+Fine manipulation,Sol-5.6,Right block,pick_key,No video · History,0,3,0.0,
+Fine manipulation,Sol-5.6,Right block,pick_key,Video · No history,0,3,0.0,
+Fine manipulation,Sol-5.6,Right block,pick_key,Video · History,0,3,0.0,
+Fine manipulation,Sol-5.6,Right block,pick_hex_screw,No video · No history,0,3,0.0,Check required
+Fine manipulation,Sol-5.6,Right block,pick_hex_screw,No video · History,0,3,0.0,Check required
+Fine manipulation,Sol-5.6,Right block,pick_hex_screw,Video · No history,0,3,0.0,Check required
+Fine manipulation,Sol-5.6,Right block,pick_hex_screw,Video · History,0,3,0.0,Check required
+Force aware,Astra,Left / only block,pick up a potato chip,No video · No history,0,1,0.0,
+Force aware,Astra,Left / only block,pick up a potato chip,No video · History,0,1,0.0,
+Force aware,Astra,Left / only block,pick up a potato chip,Video · No history,0,1,0.0,
+Force aware,Astra,Left / only block,pick up a potato chip,Video · History,0,1,0.0,
+Bimanual coordination,Astra,Left / only block,Sweep up trash,No video · No history,0,3,0.0,Duration flagged in history-only condition
+Bimanual coordination,Astra,Left / only block,Sweep up trash,No video · History,0,3,0.0,Duration flagged in history-only condition
+Bimanual coordination,Astra,Left / only block,Sweep up trash,Video · No history,0,3,0.0,Duration flagged in history-only condition
+Bimanual coordination,Astra,Left / only block,Sweep up trash,Video · History,1,3,33.33,Duration flagged in history-only condition
+Tool use,Unspecified (tool-use block),Left / only block,bread_tongs,No video · No history,0,3,0.0,
+Tool use,Unspecified (tool-use block),Left / only block,bread_tongs,No video · History,0,4,0.0,
+Tool use,Unspecified (tool-use block),Left / only block,bread_tongs,Video · No history,0,3,0.0,
+Tool use,Unspecified (tool-use block),Left / only block,bread_tongs,Video · History,1,5,20.0,
+Tool use,Unspecified (tool-use block),Left / only block,Pick up a bread with a tong,No video · No history,0,3,0.0,
+Tool use,Unspecified (tool-use block),Left / only block,Pick up a bread with a tong,No video · History,2,3,66.67,
+Tool use,Unspecified (tool-use block),Left / only block,Pick up a bread with a tong,Video · No history,0,3,0.0,
+Tool use,Unspecified (tool-use block),Left / only block,Pick up a bread with a tong,Video · History,1,3,33.33,
+Deformable objects,Astra,Left / only block,fold_towel_in_half,No video · No history,0,3,0.0,
+Deformable objects,Astra,Left / only block,fold_towel_in_half,No video · History,0,3,0.0,
+Deformable objects,Astra,Left / only block,fold_towel_in_half,Video · No history,0,3,0.0,
+Deformable objects,Astra,Left / only block,fold_towel_in_half,Video · History,0,3,0.0,
+Spatial reasoning  5.6Sol&5.5Opus,Astra,Left / only block,Stand Up a Fallen Bottle,No video · No history,0,4,0.0,
+Spatial reasoning  5.6Sol&5.5Opus,Astra,Left / only block,Stand Up a Fallen Bottle,No video · History,2,3,66.67,
+Spatial reasoning  5.6Sol&5.5Opus,Astra,Left / only block,Stand Up a Fallen Bottle,Video · No history,0,3,0.0,
+Spatial reasoning  5.6Sol&5.5Opus,Astra,Left / only block,Stand Up a Fallen Bottle,Video · History,3,3,100.0,
+Spatial reasoning  5.6Sol&5.5Opus,Astra,Right block,Stand Up a Fallen Bottle,No video · No history,0,3,0.0,
+Spatial reasoning  5.6Sol&5.5Opus,Astra,Right block,Stand Up a Fallen Bottle,No video · History,2,3,66.67,
+Spatial reasoning  5.6Sol&5.5Opus,Astra,Right block,Stand Up a Fallen Bottle,Video · No history,0,3,0.0,
+Spatial reasoning  5.6Sol&5.5Opus,Astra,Right block,Stand Up a Fallen Bottle,Video · History,3,3,100.0,
+Spatial reasoning  5.6Sol&5.5Opus,Astra,Left / only block,Sort trash and toiletry,No video · No history,0,3,0.0,
+Spatial reasoning  5.6Sol&5.5Opus,Astra,Left / only block,Sort trash and toiletry,No video · History,0,4,0.0,
+Spatial reasoning  5.6Sol&5.5Opus,Astra,Left / only block,Sort trash and toiletry,Video · No history,0,3,0.0,
+Spatial reasoning  5.6Sol&5.5Opus,Astra,Left / only block,Sort trash and toiletry,Video · History,0,3,0.0,
+Spatial reasoning  5.6Sol&5.5Opus,Astra,Left / only block,memory_search,No video · No history,1,5,20.0,
+Spatial reasoning  5.6Sol&5.5Opus,Astra,Left / only block,memory_search,No video · History,1,5,20.0,
+Spatial reasoning  5.6Sol&5.5Opus,Astra,Left / only block,memory_search,Video · No history,1,6,16.67,
+Spatial reasoning  5.6Sol&5.5Opus,Astra,Left / only block,memory_search,Video · History,2,7,28.57,
+Spatial reasoning  5.6Sol&5.5Opus,Astra,Right block,memory_search,No video · No history,0,3,0.0,
+Spatial reasoning  5.6Sol&5.5Opus,Astra,Right block,memory_search,No video · History,0,3,0.0,
+Spatial reasoning  5.6Sol&5.5Opus,Astra,Right block,memory_search,Video · No history,1,3,33.33,
+Spatial reasoning  5.6Sol&5.5Opus,Astra,Right block,memory_search,Video · History,1,3,33.33,

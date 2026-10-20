@@ -159,7 +159,7 @@ function trajSvg(pts,bn,accent){
   return [cx+u*k, cy+(v*Math.sin(E)-dz*Math.cos(E))*k];};
  const h=bn.s/2, fz=bn.floor;
  const floor=[[-h,-h],[h,-h],[h,h],[-h,h]].map(([p,q])=>pr(bn.c[0]+p,bn.c[1]+q,fz));
- let s=`<polygon points="${floor.map(p=>p.join(',')).join(' ')}" fill="var(--sunk)" stroke="var(--line)" stroke-width="1"/>`;
+ let s=`<polygon points="${floor.map(p=>p.join(',')).join(' ')}" fill="var(--soft)" stroke="var(--line)" stroke-width="1"/>`;
  for(let i=1;i<4;i++){const f=-h+i*(2*h)/4;
   const a1=pr(bn.c[0]+f,bn.c[1]-h,fz),a2=pr(bn.c[0]+f,bn.c[1]+h,fz);
   const b1=pr(bn.c[0]-h,bn.c[1]+f,fz),b2=pr(bn.c[0]+h,bn.c[1]+f,fz);
@@ -167,7 +167,7 @@ function trajSvg(pts,bn,accent){
    + `<line x1="${b1[0]}" y1="${b1[1]}" x2="${b2[0]}" y2="${b2[1]}" stroke="var(--line)" stroke-width=".5"/>`;}
  const P=pts.map(p=>pr(p.x,p.y,p.z));
  pts.forEach((p,i)=>{const f=pr(p.x,p.y,fz);
-  s+=`<line x1="${P[i][0]}" y1="${P[i][1]}" x2="${f[0]}" y2="${f[1]}" stroke="var(--line2)" stroke-width=".5" opacity=".22"/>`;});
+  s+=`<line x1="${P[i][0]}" y1="${P[i][1]}" x2="${f[0]}" y2="${f[1]}" stroke="var(--line)" stroke-width=".5" opacity=".22"/>`;});
  s+=`<polyline fill="none" stroke="${accent?'var(--accent)':'var(--muted)'}" stroke-opacity=".75" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" points="${P.map(q=>q.join(',')).join(' ')}"/>`;
  pts.forEach((p,i)=>{
   const col=p.r?'var(--bad,#b23a2c)':(accent?'var(--accent)':'var(--muted)');

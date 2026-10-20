@@ -171,9 +171,9 @@ function trajSvg(pts,bn,accent){
  s+=`<polyline fill="none" stroke="${accent?'var(--accent)':'var(--muted)'}" stroke-opacity=".75" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" points="${P.map(q=>q.join(',')).join(' ')}"/>`;
  pts.forEach((p,i)=>{
   const col=p.r?'var(--bad,#b23a2c)':(accent?'var(--accent)':'var(--muted)');
-  s+=`<circle class="tj-p" data-i="${i}" cx="${P[i][0]}" cy="${P[i][1]}" r="${p.g?4.6:3.2}" fill="${p.g?'none':col}" stroke="${p.g?'var(--ink)':'var(--panel,#fff)'}" stroke-width="${p.g?1.6:.9}"/>`;});
+  s+=`<circle class="tj-p" data-i="${i}" cx="${P[i][0]}" cy="${P[i][1]}" r="3.2" fill="${col}" stroke="var(--panel,#fff)" stroke-width=".9"/>`;});
  s+=`<circle class="tj-cur" r="5.5" fill="none" stroke="var(--ink)" stroke-width="1.6" opacity="0"/>`;
- return `<svg class="tj" viewBox="0 0 ${W} ${H}" role="img" aria-label="Commanded targets in space">${s}</svg>`;
+ return `<svg class="tj" viewBox="0 0 ${W} ${H}" role="img" aria-label="Measured end-effector path in space">${s}</svg>`;
 }
 
 function graspTimeline(d){
@@ -190,7 +190,7 @@ function graspTimeline(d){
 
 function renderGrasp(taskKey){
  const d=GRASPS.tasks[taskKey],container=document.getElementById('grasp-compare'),seekers={};stopInside(container);
- container.innerHTML=`<div class="grasp-shared"><button id="pair-play" aria-label="Play both grasp recordings">Play both ▶</button><span>1× recorded time · independent timelines</span></div><div class="grasp-pair">${['baseline','tl','history'].map(condition=>{if(condition==='tl')return graspTimeline(d);const c=d[condition],label=condition==='baseline'?'Without memory':'With memory';return `<article class="grasp-condition" data-condition="${condition}"><div class="film-label ${condition==='history'?'accent':''}">${label}<span>top + ${esc(c.wrist)} wrist</span></div><video playsinline preload="metadata" controls src="${esc(c.src)}"></video><div class="grasp-controls"><button class="grasp-play icon-button" aria-label="Play ${esc(d.title)} ${label.toLowerCase()}">▶</button><input type="range" aria-label="${esc(d.title)} ${label.toLowerCase()} timeline" min="0" max="${c.duration}" value="0" step="0.05"><output>0:00 / ${clock(c.duration)}</output></div><div class="grasp-status" role="status"></div><div class="tj-wrap" data-side="${condition}">${trajSvg(c.traj,trajBounds(d),condition==='history')}</div></article>`;}).join('')}</div><p class="vtl-note">Each rail is one run on its own clock; a line joins the same decision in both. Hover a point to read what happened there — the key decision stays open. The chart under each video traces the commanded target of the working arm.</p>`;
+ container.innerHTML=`<div class="grasp-shared"><button id="pair-play" aria-label="Play both grasp recordings">Play both ▶</button><span>1× recorded time · independent timelines</span></div><div class="grasp-pair">${['baseline','tl','history'].map(condition=>{if(condition==='tl')return graspTimeline(d);const c=d[condition],label=condition==='baseline'?'Without memory':'With memory';return `<article class="grasp-condition" data-condition="${condition}"><div class="film-label ${condition==='history'?'accent':''}">${label}<span>top + ${esc(c.wrist)} wrist</span></div><video playsinline preload="metadata" controls src="${esc(c.src)}"></video><div class="grasp-controls"><button class="grasp-play icon-button" aria-label="Play ${esc(d.title)} ${label.toLowerCase()}">▶</button><input type="range" aria-label="${esc(d.title)} ${label.toLowerCase()} timeline" min="0" max="${c.duration}" value="0" step="0.05"><output>0:00 / ${clock(c.duration)}</output></div><div class="grasp-status" role="status"></div><div class="tj-wrap" data-side="${condition}">${trajSvg(c.traj,trajBounds(d),condition==='history')}</div></article>`;}).join('')}</div><p class="vtl-note">Each rail is one run on its own clock; a line joins the same decision in both. Hover a point to read what happened there — the key decision stays open. The chart under each video traces the measured end-effector path of the working arm.</p>`;
  const both=container.querySelector('#pair-play'),videos=[...container.querySelectorAll('video')];
  function updateBoth(){const playing=videos.some(v=>!v.paused&&!v.ended);both.textContent=playing?'Pause both Ⅱ':'Play both ▶';both.setAttribute('aria-label',playing?'Pause both grasp recordings':'Play both grasp recordings');}
  container.querySelectorAll('.grasp-condition').forEach(root=>{
@@ -205,31 +205,41 @@ function renderGrasp(taskKey){
  });
  const bn3=trajBounds(d);
  const tjSync={};
+ let tjDrag=null;
  function tjDraw(){
   container.querySelectorAll('.tj-wrap').forEach(w=>{
    const side=w.dataset.side;
    w.innerHTML=trajSvg(d[side].traj,bn3,side==='history');
-   const svg=w.querySelector('.tj'); if(!svg)return;
-   svg.querySelectorAll('.tj-p').forEach(el=>{
+   w.querySelectorAll('.tj-p').forEach(el=>{
     const p=(d[side].traj||[])[+el.dataset.i]; if(!p)return;
-    const show=()=>{};
-    el.addEventListener('mouseenter',show);
-    el.addEventListener('click',()=>{show();const f=seekers[side];if(f&&p.t!=null)f(p.t);});
+    el.addEventListener('click',()=>{const f=seekers[side];if(f&&p.t!=null)f(p.t);});
    });
-   let drag=null;
-   svg.addEventListener('pointerdown',e=>{if(e.target.closest('.tj-p'))return;
-    drag={x:e.clientX,y:e.clientY,a:trajAz,e:trajEl};svg.setPointerCapture(e.pointerId);});
-   svg.addEventListener('pointermove',e=>{if(!drag)return;
-    trajAz=drag.a+(e.clientX-drag.x)*0.6;
-    trajEl=Math.max(8,Math.min(80,drag.e-(e.clientY-drag.y)*0.4));
-    tjDraw();});
-   const end=()=>{drag=null;};
-   svg.addEventListener('pointerup',end);svg.addEventListener('pointercancel',end);
   });
   Object.keys(tjSync).forEach(k=>tjSync[k]&&tjSync[k]());
  }
  if(bn3){
   tjDraw();
+  // the svg is rebuilt on every frame, so the drag lives on the wrapper, which is not
+  container.querySelectorAll('.tj-wrap').forEach(w=>{
+   w.addEventListener('pointerdown',e=>{
+    if(e.target.closest('.tj-p'))return;
+    tjDrag={x:e.clientX,y:e.clientY,a:trajAz,e:trajEl};
+    w.classList.add('dragging');
+    try{w.setPointerCapture(e.pointerId);}catch(_){}
+    e.preventDefault();
+   });
+   w.addEventListener('pointermove',e=>{
+    if(!tjDrag)return;
+    trajAz=tjDrag.a+(e.clientX-tjDrag.x)*0.6;
+    trajEl=Math.max(8,Math.min(80,tjDrag.e-(e.clientY-tjDrag.y)*0.4));
+    tjDraw();
+   });
+   const end=e=>{tjDrag=null;w.classList.remove('dragging');
+    try{w.releasePointerCapture(e.pointerId);}catch(_){}};
+   w.addEventListener('pointerup',end);
+   w.addEventListener('pointercancel',end);
+   w.addEventListener('lostpointercapture',()=>{tjDrag=null;w.classList.remove('dragging');});
+  });
   container.querySelectorAll('.grasp-condition').forEach(root=>{
    const side=root.dataset.condition,v=root.querySelector('video');
    tjSync[side]=()=>{

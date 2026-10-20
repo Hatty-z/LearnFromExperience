@@ -28,10 +28,9 @@
         if (!r || !['missing', 'pending', 'reported', 'annotated'].includes(r.status)) throw Error(`Invalid status: ${t.id}/${c}`);
         if (r.trials !== null && (!Number.isInteger(r.trials) || r.trials <= 0)) throw Error(`Invalid trials: ${t.id}/${c}`);
         if (r.successes !== null && (!Number.isInteger(r.successes) || r.successes < 0 || r.trials === null || r.successes > r.trials)) throw Error(`Invalid successes: ${t.id}/${c}`);
-        if (r.progress !== null && (!Number.isFinite(r.progress) || r.progress < 0 || r.progress > 100)) throw Error(`Invalid progress: ${t.id}/${c}`);
-        if (r.source !== null && !data.sources[r.source]) throw Error(`Unknown source: ${t.id}/${c}`);
+               if (r.source !== null && !data.sources[r.source]) throw Error(`Unknown source: ${t.id}/${c}`);
         if (['reported', 'annotated'].includes(r.status) && (r.successes === null || r.trials === null || !r.source)) throw Error(`Incomplete scored result: ${t.id}/${c}`);
-        if (r.status === 'missing' && (r.successes !== null || r.progress !== null)) throw Error(`Missing status contains measurements: ${t.id}/${c}`);
+        if (r.status === 'missing' && r.successes !== null) throw Error(`Missing status contains measurements: ${t.id}/${c}`);
       }
     }
     return data;
@@ -65,7 +64,7 @@
       <div id="benchmark-tooltip" class="benchmark-tooltip" role="status" hidden></div>
       <div class="benchmark-radars"><figure><figcaption>By capability <small>A task may appear on several axes</small></figcaption><div id="radar-capabilities"></div></figure><figure><figcaption>By object <small>One primary object category per task</small></figcaption><div id="radar-objects"></div></figure></div>
       <div id="benchmark-axis-detail" class="benchmark-axis-detail" aria-live="polite"></div>
-      <div class="benchmark-table-heading"><h4>Results by task</h4><label><span class="sr-only">Search tasks</span><input id="benchmark-search" type="search" placeholder="Find a task…"></label><label>Metric <select id="benchmark-metric"><option value="success">Success / trials</option><option value="progress">Progress (%)</option></select></label></div>
+      <div class="benchmark-table-heading"><h4>Results by task</h4><label><span class="sr-only">Search tasks</span><input id="benchmark-search" type="search" placeholder="Find a task…"></label></div>
       <div class="benchmark-legend benchmark-results-legend" aria-label="Results series">${series.map(c => `<button type="button" data-series="${escape(c.id)}" aria-pressed="${active.includes(c.id)}" style="--series:${escape(c.color)}"><i></i>${escape(c.label)}</button>`).join('')}</div>
       <div class="benchmark-bars-axis" aria-hidden="true"><span>Task</span><div><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div><span id="benchmark-bars-measure">Success / trials</span></div>
       <div id="benchmark-bars" class="benchmark-bars" aria-label="Task performance" aria-live="polite"></div>
@@ -77,8 +76,7 @@
       const condition=series.find(s=>s.id===info.series);
       if(info.task) {
         const task=data.tasks.find(t=>t.id===info.task), r=task.results[info.series];
-        const metric=host.querySelector('#benchmark-metric').value;
-        const text=metric==='success'?`${r.successes}/${r.trials} successful trials · ${pct(r.successes/r.trials)}`:`Progress: ${r.progress}%`;
+                const text=`${r.successes}/${r.trials} successful trials · ${pct(r.successes/r.trials)}`;
         return `<strong>${escape(condition.label)}</strong><span>${escape(task.label)}</span><b>${text}</b>${r.status==='pending'?'<small>Awaiting confirmation †</small>':''}`;
       }
       const axes=data.axes[info.family].filter(a=>!info.axis||a.id===info.axis);
@@ -181,27 +179,26 @@
     function drawTable() {
       const query=host.querySelector('#benchmark-search').value.trim().toLowerCase();
       const rows=data.tasks.filter(t=>(t.label+' '+t.id+' '+t.capabilities.concat(t.objects).join(' ')+' '+data.axes.objects.find(a=>a.id===t.objects[0]).label).toLowerCase().includes(query));
-      const metric=host.querySelector('#benchmark-metric').value;
-      host.querySelector('#benchmark-bars-measure').textContent=metric==='success'?'Success / trials':'Progress';
+            host.querySelector('#benchmark-bars-measure').textContent='Success / trials';
       const barHtml = rows.map(t=>{
-        const measured=active.some(c=>metric==='success'?t.results[c].successes!==null:t.results[c].progress!==null);
+        const measured=active.some(c=>t.results[c].successes!==null);
         return `<div class="benchmark-task-bars"><div class="benchmark-task-name"><strong>${escape(t.label)}</strong>${taskLabels(t)}</div><div class="benchmark-task-series">${!measured?'<div class="benchmark-empty-task">'+(active.length?'Results awaiting entry':'Select a series to compare')+'</div>':active.map(c=>{
           const r=t.results[c], condition=series.find(s=>s.id===c);
-          const value=metric==='success'?(r.successes!==null && r.trials!==null?r.successes/r.trials*100:null):r.progress;
+          const value=r.successes!==null && r.trials!==null?r.successes/r.trials*100:null;
           const label=condition.label.replace(' · ',' ').replace('final harness','final');
-          const text=value===null?'':(metric==='success'?`${r.successes}/${r.trials} <small>${pct(value/100)}</small>`:`${r.progress}%`);
-          const description=value===null?'Not supplied':`${Math.round(value)} percent${metric==='success'?`, ${r.successes} of ${r.trials} trials`:''}${r.status==='pending'?', awaiting confirmation':''}`;
+          const text=value===null?'':`${r.successes}/${r.trials} <small>${pct(value/100)}</small>`;
+          const description=value===null?'Not supplied':`${Math.round(value)} percent${`, ${r.successes} of ${r.trials} trials`}${r.status==='pending'?', awaiting confirmation':''}`;
           return `<div data-task="${escape(t.id)}" data-condition="${escape(c)}" class="benchmark-bar-row ${value===null?'is-missing':''} ${r.status==='pending'?'is-pending':''}" style="--series:${escape(condition.color)}" aria-label="${escape(condition.label+': '+description)}"><span class="benchmark-bar-series">${escape(label)}</span><div class="benchmark-bar-track">${value===null?'':`<span class="benchmark-bar-fill ${value===0?'is-zero':''}" style="width:${value}%"></span>`}</div><span class="benchmark-bar-value">${text}${value!==null&&r.status==='pending'?'<sup>†</sup>':''}</span></div>`;
         }).join('')}</div></div>`;
       }).join('');
       host.querySelector('#benchmark-bars').innerHTML=barHtml||'<p class="benchmark-note">No matching tasks.</p>';
       host.querySelectorAll('.benchmark-bar-row:not(.is-missing)').forEach(node=>bindMark(node,{series:node.dataset.condition,task:node.dataset.task}));
       updateHighlight();
-      host.querySelector('#benchmark-count').textContent=`${rows.length} tasks · ${metric==='success'?'successful episodes / trials':'subgoal completion (%)'}`;
+      host.querySelector('#benchmark-count').textContent=`${rows.length} tasks · successful episodes / trials`;
       host.querySelector('#benchmark-rows').innerHTML=rows.length ? rows.map(t=>`<tr><th scope="row" title="${escape(t.note||'')}">${escape(t.label)}${taskLabels(t)}</th>${series.map(c=>{
-        const r=t.results[c.id], measured=metric==='success'?r.successes!==null&&r.trials!==null:r.progress!==null;
+        const r=t.results[c.id], measured=r.successes!==null&&r.trials!==null;
         if(!measured)return '<td class="benchmark-missing" aria-label="Not supplied"></td>';
-        const text=metric==='success'?`${r.successes}/${r.trials} <small>${pct(r.successes/r.trials)}</small>`:`${r.progress}%`;
+        const text=`${r.successes}/${r.trials} <small>${pct(r.successes/r.trials)}</small>`;
         const note=[data.sources[r.source]?.label,r.note].filter(Boolean).join('. ');
         return `<td class="${r.status==='pending'?'benchmark-pending':''}" title="${escape(note)}">${text}${r.status==='pending'?'<sup aria-label="Awaiting confirmation">†</sup>':''}</td>`;
       }).join('')}</tr>`).join(''):`<tr><td colspan="${series.length+1}">No matching tasks.</td></tr>`;
@@ -222,7 +219,6 @@
       if(active.includes(id)){hoverMark=b;updateHighlight();}
     }));
     host.querySelector('#benchmark-search').addEventListener('input',()=>{clearHighlight();drawTable();});
-    host.querySelector('#benchmark-metric').addEventListener('change',()=>{clearHighlight();drawTable();});
     drawCharts();drawTable();
   }
   init().catch(error => {

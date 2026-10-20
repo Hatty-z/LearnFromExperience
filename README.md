@@ -1,4 +1,4 @@
-# Submission 56861 — Minimal website
+# Minimal website
 
 A standalone static research website with seven sections, interactive charts,
 video timelines, and downloadable results. This folder includes the web-ready

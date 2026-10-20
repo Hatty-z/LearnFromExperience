@@ -59,24 +59,19 @@
     const marks = new WeakMap();
     let selectedAxis = { family: 'capabilities', id: 'fine' };
     host.innerHTML = `
-      <div class="section-heading benchmark-heading"><span class="index">06</span><h2>Success across tasks.</h2><a href="benchmark-results.json" download>Data ↗</a></div>
+      <div class="section-heading benchmark-heading"><span class="index">04</span><h2>Results</h2><a href="benchmark-results.json" download>Data ↗</a></div>
       <div class="benchmark-legend" aria-label="Chart series">${series.map(c => `<button type="button" data-series="${escape(c.id)}" aria-pressed="${active.includes(c.id)}" style="--series:${escape(c.color)}"><i></i>${escape(c.label)}</button>`).join('')}</div>
-      <div class="benchmark-controls"><label>Radar coverage <select id="benchmark-coverage"><option value="available">All available tasks</option><option value="shared">Shared tasks only</option></select></label><span>Task success · 0–100% · equal task weighting</span></div>
-      <p class="benchmark-interaction-hint">Hover a legend to highlight its series; click to show or hide. Click a contour or bar to pin; press Esc to clear.</p>
+      <div class="benchmark-controls"><span>Task success · 0–100% · equal task weighting</span></div>
       <div id="benchmark-tooltip" class="benchmark-tooltip" role="status" hidden></div>
       <div class="benchmark-radars"><figure><figcaption>By capability <small>A task may appear on several axes</small></figcaption><div id="radar-capabilities"></div></figure><figure><figcaption>By object <small>One primary object category per task</small></figcaption><div id="radar-objects"></div></figure></div>
       <div id="benchmark-axis-detail" class="benchmark-axis-detail" aria-live="polite"></div>
-      <p class="benchmark-note" id="benchmark-method"></p>
       <div class="benchmark-table-heading"><h4>Results by task</h4><label><span class="sr-only">Search tasks</span><input id="benchmark-search" type="search" placeholder="Find a task…"></label><label>Metric <select id="benchmark-metric"><option value="success">Success / trials</option><option value="progress">Progress (%)</option></select></label></div>
       <div class="benchmark-legend benchmark-results-legend" aria-label="Results series">${series.map(c => `<button type="button" data-series="${escape(c.id)}" aria-pressed="${active.includes(c.id)}" style="--series:${escape(c.color)}"><i></i>${escape(c.label)}</button>`).join('')}</div>
       <div class="benchmark-bars-axis" aria-hidden="true"><span>Task</span><div><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div><span id="benchmark-bars-measure">Success / trials</span></div>
       <div id="benchmark-bars" class="benchmark-bars" aria-label="Task performance" aria-live="polite"></div>
       <details class="benchmark-raw"><summary>View the results table</summary>
-      <div class="benchmark-table-scroll" tabindex="0" role="region" aria-label="Complete experimental results; scroll horizontally for all models"><table class="benchmark-table"><caption id="benchmark-count"></caption><thead><tr><th rowspan="2" scope="col">Task</th>${[...new Set(series.map(c=>c.label.split(' · ')[0]))].map(model=>`<th colspan="${series.filter(c=>c.label.split(' · ')[0]===model).length}" scope="colgroup">${escape(model)}</th>`).join('')}</tr><tr>${series.map(c=>`<th scope="col">${escape(c.label.split(' · ')[1])}</th>`).join('')}</tr></thead><tbody id="benchmark-rows"></tbody></table></div></details>
-      <p class="benchmark-note">Blank = not supplied. <b>0/n = measured failure.</b> † = awaiting confirmation; excluded from the radars. Counts are small and conditions are not matched across every task.</p>
-      <details class="benchmark-notes"><summary>Sources, task labels &amp; missing results</summary><p>${data.notes.map(escape).join(' ')}</p><p>Sources: ${Object.values(data.sources).map(s=>escape(s.label)).join('; ')}.</p><p>${data.tasks.flatMap(t=>Object.entries(t.results).filter(([,r])=>r.status==='pending').map(([c,r])=>escape(t.label+' · '+data.conditions.find(s=>s.id===c).label+': '+(r.note||'Awaiting confirmation')))).join(' ')}</p><p>Chart presentation informed by <a href="https://benchmarks.xdof.ai/" target="_blank" rel="noopener noreferrer">XDOF Benchmarks ↗</a>. No external benchmark results are included.</p></details>`;
-    const coverage = host.querySelector('#benchmark-coverage');
-    const getStats = (f, a, c) => aggregate(data, f, a, c, coverage.value === 'shared' ? active : null);
+      <div class="benchmark-table-scroll" tabindex="0" role="region" aria-label="Complete experimental results; scroll horizontally for all models"><table class="benchmark-table"><caption id="benchmark-count"></caption><thead><tr><th rowspan="2" scope="col">Task</th>${[...new Set(series.map(c=>c.label.split(' · ')[0]))].map(model=>`<th colspan="${series.filter(c=>c.label.split(' · ')[0]===model).length}" scope="colgroup">${escape(model)}</th>`).join('')}</tr><tr>${series.map(c=>`<th scope="col">${escape(c.label.split(' · ')[1])}</th>`).join('')}</tr></thead><tbody id="benchmark-rows"></tbody></table></div></details>`;
+    const getStats = (f, a, c) => aggregate(data, f, a, c, null);
     const tooltip = host.querySelector('#benchmark-tooltip');
     function highlightInfo(info) {
       const condition=series.find(s=>s.id===info.series);
@@ -177,9 +172,6 @@
     }
     function drawCharts() {
       drawRadar('capabilities');drawRadar('objects');drawDetails();
-      host.querySelector('#benchmark-method').textContent = coverage.value==='shared'
-        ? 'Only tasks with supplied, non-pending results for every selected series are compared. Shading joins adjacent measured axes only. Select fewer series to inspect broader shared coverage.'
-        : 'Each axis averages per-task success rates over available, non-pending results. Coverage differs between series; these shapes are descriptive, not a matched ranking. Shading joins adjacent measured axes only; missing axes stay empty.';
     }
     function taskLabels(t) {
       const object=data.axes.objects.find(a=>a.id===t.objects[0]);
@@ -205,7 +197,7 @@
       host.querySelector('#benchmark-bars').innerHTML=barHtml||'<p class="benchmark-note">No matching tasks.</p>';
       host.querySelectorAll('.benchmark-bar-row:not(.is-missing)').forEach(node=>bindMark(node,{series:node.dataset.condition,task:node.dataset.task}));
       updateHighlight();
-      host.querySelector('#benchmark-count').textContent=`${rows.length} tasks · ${rows.reduce((n,t)=>n+series.filter(c=>t.results[c.id].successes!==null).length,0)}/${rows.length*series.length} count cells supplied · ${metric==='success'?'successful episodes / trials':'subgoal completion (%)'}`;
+      host.querySelector('#benchmark-count').textContent=`${rows.length} tasks · ${metric==='success'?'successful episodes / trials':'subgoal completion (%)'}`;
       host.querySelector('#benchmark-rows').innerHTML=rows.length ? rows.map(t=>`<tr><th scope="row" title="${escape(t.note||'')}">${escape(t.label)}${taskLabels(t)}</th>${series.map(c=>{
         const r=t.results[c.id], measured=metric==='success'?r.successes!==null&&r.trials!==null:r.progress!==null;
         if(!measured)return '<td class="benchmark-missing" aria-label="Not supplied"></td>';
@@ -229,7 +221,6 @@
       host.querySelectorAll('[data-series]').forEach(button=>button.setAttribute('aria-pressed',active.includes(button.dataset.series)));drawCharts();drawTable();
       if(active.includes(id)){hoverMark=b;updateHighlight();}
     }));
-    coverage.addEventListener('change',()=>{clearHighlight();drawCharts();});
     host.querySelector('#benchmark-search').addEventListener('input',()=>{clearHighlight();drawTable();});
     host.querySelector('#benchmark-metric').addEventListener('change',()=>{clearHighlight();drawTable();});
     drawCharts();drawTable();

@@ -1,371 +1,386 @@
 {
-  "content_version": "15.9",
-  "created": "2026-10-16",
-  "source_commit": "5235d41d3adbf1b3e94a8697d8cc95fd8f61103c",
-  "media_source_commit": "6226fa9c68278ec46e05e7c243353de60dde01f8",
-  "notes": "Current visible content preserved. Approved web encodes; no new re-encoding or retiming. Original recordings stay outside this folder.",
-  "assets": [
-    {
-      "path": "assets/bbq-feedback.mp4",
-      "bytes": 8793184,
-      "sha256": "7150fccab7336020964a9b12f8f138f377e121a09d272239f3906e94c91b9d79",
-      "used_by": [
-        "bbq"
-      ],
-      "codec_name": "h264",
-      "width": 640,
-      "height": 480,
-      "r_frame_rate": "30/1",
-      "duration_seconds": 393.2
-    },
-    {
-      "path": "assets/bottle-success-observations.mp4",
-      "bytes": 928876,
-      "sha256": "2cf7f646b4c637cceb828661c6d6e1e0a41afaaf0f4d37d023a9e8fe7c133196",
-      "used_by": [
-        "stand_bottle"
-      ],
-      "codec_name": "h264",
-      "width": 1280,
-      "height": 530,
-      "r_frame_rate": "20/1",
-      "duration_seconds": 59.55
-    },
-    {
-      "path": "assets/bread-active-vision.mp4",
-      "bytes": 6708504,
-      "sha256": "521eb4553392146c591e45c7836f7880801c67e5afee6d9b6fb95d9963f398c0",
-      "used_by": [
-        "bread"
-      ],
-      "codec_name": "h264",
-      "width": 1280,
-      "height": 720,
-      "r_frame_rate": "24/1",
-      "duration_seconds": 126.083333
-    },
-    {
-      "path": "assets/bread-timeline.png",
-      "bytes": 2906077,
-      "sha256": "def540f6f5becb8ab498638ecd61410c132c2e13e00943a70234a85af4eeb5ff",
-      "used_by": [
-        "index.html"
-      ]
-    },
-    {
-      "path": "assets/chip-timeline.png",
-      "bytes": 1990596,
-      "sha256": "800a5947831a7b824e0a1b6a9ed34d8f4e3ed84b4a9ee33f70bb9b4ab0503ed7",
-      "used_by": [
-        "app.js",
-        "app.js"
-      ]
-    },
-    {
-      "path": "assets/pick-ball-baseline.mp4",
-      "bytes": 10655699,
-      "sha256": "08093b11cacf6d5276fc4f0b5d7fcb0e5a85e5815aea9eb943133d0aded1be18",
-      "used_by": [
-        "ball:baseline"
-      ],
-      "codec_name": "h264",
-      "width": 960,
-      "height": 360,
-      "r_frame_rate": "12/1",
-      "duration_seconds": 193.916667
-    },
-    {
-      "path": "assets/pick-ball-history.mp4",
-      "bytes": 5963996,
-      "sha256": "1e044ca723653350640c101ba44f62a7629a893ef891a600be67986a2e83d36e",
-      "used_by": [
-        "ball:history"
-      ],
-      "codec_name": "h264",
-      "width": 960,
-      "height": 360,
-      "r_frame_rate": "12/1",
-      "duration_seconds": 151.25
-    },
-    {
-      "path": "assets/pick-cable_tie-baseline.mp4",
-      "bytes": 3588290,
-      "sha256": "94898eacba4f84f1ee222e8fdf7bf0f8fd2ab260576935e2e123228952852c91",
-      "used_by": [
-        "cable_tie:baseline"
-      ],
-      "codec_name": "h264",
-      "width": 960,
-      "height": 360,
-      "r_frame_rate": "12/1",
-      "duration_seconds": 96.0
-    },
-    {
-      "path": "assets/pick-cable_tie-history.mp4",
-      "bytes": 2779396,
-      "sha256": "3bc84301d23997546f94736250a8bef72cbf5001b086fc59d33eec52e7c74321",
-      "used_by": [
-        "cable_tie:history"
-      ],
-      "codec_name": "h264",
-      "width": 960,
-      "height": 360,
-      "r_frame_rate": "12/1",
-      "duration_seconds": 70.833333
-    },
-    {
-      "path": "assets/pick-hex_screw-baseline.mp4",
-      "bytes": 7483490,
-      "sha256": "a6de2e62b8997ea318a588846af9c29d2416bb5abb78e3479e3b40e9d0f9ce1b",
-      "used_by": [
-        "hex_screw:baseline"
-      ],
-      "codec_name": "h264",
-      "width": 960,
-      "height": 360,
-      "r_frame_rate": "12/1",
-      "duration_seconds": 194.25
-    },
-    {
-      "path": "assets/pick-hex_screw-history.mp4",
-      "bytes": 2765025,
-      "sha256": "39f65d16b4bd00bbae7c7e172da9358c3e998d2698986ddc1004c33a6c54e9f3",
-      "used_by": [
-        "hex_screw:history"
-      ],
-      "codec_name": "h264",
-      "width": 960,
-      "height": 360,
-      "r_frame_rate": "12/1",
-      "duration_seconds": 70.166667
-    },
-    {
-      "path": "assets/pick-key-baseline.mp4",
-      "bytes": 9222548,
-      "sha256": "9917c5dc52575df9aa0a1a73b3b74c57f39865f2464046955a5fde3031938b12",
-      "used_by": [
-        "key:baseline"
-      ],
-      "codec_name": "h264",
-      "width": 960,
-      "height": 360,
-      "r_frame_rate": "12/1",
-      "duration_seconds": 239.666667
-    },
-    {
-      "path": "assets/pick-key-history.mp4",
-      "bytes": 3203871,
-      "sha256": "07d08254aa2a8485f9d5b2cd438eb6cba32deb84ff417a915479adfc71f1a87f",
-      "used_by": [
-        "key:history"
-      ],
-      "codec_name": "h264",
-      "width": 960,
-      "height": 360,
-      "r_frame_rate": "12/1",
-      "duration_seconds": 75.833333
-    },
-    {
-      "path": "assets/plush-20261014.mp4",
-      "bytes": 17189880,
-      "sha256": "ab1c873a3d84242108b060c6f534f8746586b46307a639ae8f8ef47292fff6a1",
-      "used_by": [
-        "reach_plush"
-      ],
-      "codec_name": "h264",
-      "width": 1280,
-      "height": 480,
-      "r_frame_rate": "15/1",
-      "duration_seconds": 279.866667
-    },
-    {
-      "path": "assets/poster-bbq.jpg",
-      "bytes": 26634,
-      "sha256": "9d9a9cd3af8fc0f953aa9ab78fcb88b871f0e229c3c1028cddbe6bf7d62e237b",
-      "used_by": [
-        "bbq:poster"
-      ]
-    },
-    {
-      "path": "assets/poster-bottle_success.jpg",
-      "bytes": 30942,
-      "sha256": "c4b5f0b85cc62621365d08998fb453f928fa5a66d004b8d26c66e251a3f37d7a",
-      "used_by": [
-        "stand_bottle:poster"
-      ]
-    },
-    {
-      "path": "assets/poster-bread.jpg",
-      "bytes": 107317,
-      "sha256": "3cb13632e5b171d3ae528e29edb2c10b83a1e31311765e79aea3b2801075fecb",
-      "used_by": [
-        "bread:poster"
-      ]
-    },
-    {
-      "path": "assets/poster-plush-20261014.jpg",
-      "bytes": 142402,
-      "sha256": "82693fd314d89b39a730ec75827f2a0b96c9c141e04a8a34eed4582ebc374417",
-      "used_by": [
-        "reach_plush:poster"
-      ]
-    },
-    {
-      "path": "assets/poster-sponge_square.jpg",
-      "bytes": 23747,
-      "sha256": "a52cec84f81b428a0a442da4858e6ab938804b6fa401a74391582e300008835e",
-      "used_by": [
-        "sponge_square:poster"
-      ]
-    },
-    {
-      "path": "assets/poster-sponge_triangle.jpg",
-      "bytes": 23549,
-      "sha256": "2bf7d36b0152654b931b21e580e6a3234025ce1545a71232fde4cb670a891c8e",
-      "used_by": [
-        "sponge_triangle:poster"
-      ]
-    },
-    {
-      "path": "assets/poster-tighten_hex_screw.jpg",
-      "bytes": 65267,
-      "sha256": "d6bfd0416924ef98399f72f18da47090329c2a248054d41978998d373c58f9a3",
-      "used_by": [
-        "tighten_hex_screw:poster"
-      ]
-    },
-    {
-      "path": "assets/poster-towel_expert.jpg",
-      "bytes": 23457,
-      "sha256": "ff84811ba1e4c8504ee0f70f1179c4ca04f125d02bb62f3e2634ea973f42a0af",
-      "used_by": [
-        "towel_expert:poster"
-      ]
-    },
-    {
-      "path": "assets/poster-towel_recovery.jpg",
-      "bytes": 22435,
-      "sha256": "5c3936ccd0aa3c8e29d27b79e7d3a8218e567785f6b1aa8f62d42dede57ee8e4",
-      "used_by": [
-        "towel_recovery:poster"
-      ]
-    },
-    {
-      "path": "assets/sponge-square-reference.mp4",
-      "bytes": 214404,
-      "sha256": "6f24dfd011c9597d2ffae7db70682574db90a814dc46b9803a0db94bb5172070",
-      "used_by": [
-        "sponge_square:demonstration"
-      ],
-      "codec_name": "h264",
-      "width": 640,
-      "height": 288,
-      "r_frame_rate": "1/1",
-      "duration_seconds": 12.0
-    },
-    {
-      "path": "assets/sponge-square.mp4",
-      "bytes": 2532891,
-      "sha256": "2d8842bcfbd6dea102707e9f1c488271777b2176136f948e28a8b36d8b1bd297",
-      "used_by": [
-        "sponge_square"
-      ],
-      "codec_name": "h264",
-      "width": 640,
-      "height": 480,
-      "r_frame_rate": "15/1",
-      "duration_seconds": 132.2
-    },
-    {
-      "path": "assets/sponge-triangle-reference.mp4",
-      "bytes": 306688,
-      "sha256": "7f92a3b13b5fc234fdd5005053fdcc3c98c9168e56fe91ab06ccce0e0b442a62",
-      "used_by": [
-        "sponge_triangle:demonstration"
-      ],
-      "codec_name": "h264",
-      "width": 640,
-      "height": 288,
-      "r_frame_rate": "1/1",
-      "duration_seconds": 13.0
-    },
-    {
-      "path": "assets/sponge-triangle.mp4",
-      "bytes": 1869438,
-      "sha256": "9927f583771ff73e2080863cfc4544a69f12bd3e7afb4e406341b4225185085d",
-      "used_by": [
-        "sponge_triangle"
-      ],
-      "codec_name": "h264",
-      "width": 640,
-      "height": 480,
-      "r_frame_rate": "15/1",
-      "duration_seconds": 98.6
-    },
-    {
-      "path": "assets/tighten-hex-screw.mp4",
-      "bytes": 20220980,
-      "sha256": "e1d7c1fc11b02c122c24c6a587c606417ee85f509791ed0407f118def93ffea7",
-      "used_by": [
-        "tighten_hex_screw"
-      ],
-      "codec_name": "h264",
-      "width": 960,
-      "height": 480,
-      "r_frame_rate": "15/1",
-      "duration_seconds": 618.266667
-    },
-    {
-      "path": "assets/towel-expert-demo-samples.mp4",
-      "bytes": 231221,
-      "sha256": "c8b1b17fd1463b93be2ab6013f84d054e3907577937ff6a0155f0f5249b5ff7c",
-      "used_by": [
-        "towel_expert:demonstration"
-      ],
-      "codec_name": "h264",
-      "width": 640,
-      "height": 480,
-      "r_frame_rate": "1/1",
-      "duration_seconds": 13.0
-    },
-    {
-      "path": "assets/towel-expert.mp4",
-      "bytes": 5241997,
-      "sha256": "563dfba1d279bf1f11e75b0a8a6af32bc2be60d6bb9d15b3c828940d16f16af9",
-      "used_by": [
-        "towel_expert"
-      ],
-      "codec_name": "h264",
-      "width": 640,
-      "height": 480,
-      "r_frame_rate": "15/1",
-      "duration_seconds": 261.8
-    },
-    {
-      "path": "assets/towel-recovery-demo-samples.mp4",
-      "bytes": 122550,
-      "sha256": "5d767e7f32a42efcb9f11acf61e5f25fa330f1f178f694221cde1b88ef1e6da3",
-      "used_by": [
-        "towel_recovery:demonstration"
-      ],
-      "codec_name": "h264",
-      "width": 640,
-      "height": 480,
-      "r_frame_rate": "1/1",
-      "duration_seconds": 13.0
-    },
-    {
-      "path": "assets/towel-recovery.mp4",
-      "bytes": 5632070,
-      "sha256": "55738f2668820ce1e70cc4464f2e78a65a77cc46f149dec3408e100f72915e7d",
-      "used_by": [
-        "towel_recovery"
-      ],
-      "codec_name": "h264",
-      "width": 640,
-      "height": 480,
-      "r_frame_rate": "15/1",
-      "duration_seconds": 293.2
-    }
-  ]
+ "content_version": "15.9",
+ "created": "2026-10-16",
+ "source_commit": "5235d41d3adbf1b3e94a8697d8cc95fd8f61103c",
+ "media_source_commit": "6226fa9c68278ec46e05e7c243353de60dde01f8",
+ "notes": "Current visible content preserved. Approved web encodes; no new re-encoding or retiming. Original recordings stay outside this folder.",
+ "assets": [
+  {
+   "path": "assets/bbq-feedback.mp4",
+   "bytes": 8793184,
+   "sha256": "7150fccab7336020964a9b12f8f138f377e121a09d272239f3906e94c91b9d79",
+   "used_by": [
+    "bbq"
+   ],
+   "codec_name": "h264",
+   "width": 640,
+   "height": 480,
+   "r_frame_rate": "30/1",
+   "duration_seconds": 393.2
+  },
+  {
+   "path": "assets/bottle-verify-20260924.mp4",
+   "bytes": 928876,
+   "sha256": "2cf7f646b4c637cceb828661c6d6e1e0a41afaaf0f4d37d023a9e8fe7c133196",
+   "used_by": [
+    "stand_bottle"
+   ],
+   "codec_name": "h264",
+   "width": 1280,
+   "height": 530,
+   "r_frame_rate": "20/1",
+   "duration_seconds": 59.55
+  },
+  {
+   "path": "assets/bread-active-vision.mp4",
+   "bytes": 6708504,
+   "sha256": "521eb4553392146c591e45c7836f7880801c67e5afee6d9b6fb95d9963f398c0",
+   "used_by": [
+    "bread"
+   ],
+   "codec_name": "h264",
+   "width": 1280,
+   "height": 720,
+   "r_frame_rate": "24/1",
+   "duration_seconds": 126.083333
+  },
+  {
+   "path": "assets/bread-timeline.png",
+   "bytes": 2906077,
+   "sha256": "def540f6f5becb8ab498638ecd61410c132c2e13e00943a70234a85af4eeb5ff",
+   "used_by": [
+    "index.html"
+   ]
+  },
+  {
+   "path": "assets/pick-ball-baseline.mp4",
+   "bytes": 10655699,
+   "sha256": "08093b11cacf6d5276fc4f0b5d7fcb0e5a85e5815aea9eb943133d0aded1be18",
+   "used_by": [
+    "ball:baseline"
+   ],
+   "codec_name": "h264",
+   "width": 960,
+   "height": 360,
+   "r_frame_rate": "12/1",
+   "duration_seconds": 193.916667
+  },
+  {
+   "path": "assets/pick-ball-history.mp4",
+   "bytes": 5963996,
+   "sha256": "1e044ca723653350640c101ba44f62a7629a893ef891a600be67986a2e83d36e",
+   "used_by": [
+    "ball:history"
+   ],
+   "codec_name": "h264",
+   "width": 960,
+   "height": 360,
+   "r_frame_rate": "12/1",
+   "duration_seconds": 151.25
+  },
+  {
+   "path": "assets/pick-cable_tie-baseline.mp4",
+   "bytes": 3588290,
+   "sha256": "94898eacba4f84f1ee222e8fdf7bf0f8fd2ab260576935e2e123228952852c91",
+   "used_by": [
+    "cable_tie:baseline"
+   ],
+   "codec_name": "h264",
+   "width": 960,
+   "height": 360,
+   "r_frame_rate": "12/1",
+   "duration_seconds": 96.0
+  },
+  {
+   "path": "assets/pick-cable_tie-history.mp4",
+   "bytes": 2779396,
+   "sha256": "3bc84301d23997546f94736250a8bef72cbf5001b086fc59d33eec52e7c74321",
+   "used_by": [
+    "cable_tie:history"
+   ],
+   "codec_name": "h264",
+   "width": 960,
+   "height": 360,
+   "r_frame_rate": "12/1",
+   "duration_seconds": 70.833333
+  },
+  {
+   "path": "assets/pick-hex_screw-baseline.mp4",
+   "bytes": 7483490,
+   "sha256": "a6de2e62b8997ea318a588846af9c29d2416bb5abb78e3479e3b40e9d0f9ce1b",
+   "used_by": [
+    "hex_screw:baseline"
+   ],
+   "codec_name": "h264",
+   "width": 960,
+   "height": 360,
+   "r_frame_rate": "12/1",
+   "duration_seconds": 194.25
+  },
+  {
+   "path": "assets/pick-hex_screw-history.mp4",
+   "bytes": 2765025,
+   "sha256": "39f65d16b4bd00bbae7c7e172da9358c3e998d2698986ddc1004c33a6c54e9f3",
+   "used_by": [
+    "hex_screw:history"
+   ],
+   "codec_name": "h264",
+   "width": 960,
+   "height": 360,
+   "r_frame_rate": "12/1",
+   "duration_seconds": 70.166667
+  },
+  {
+   "path": "assets/pick-key-baseline.mp4",
+   "bytes": 9222548,
+   "sha256": "9917c5dc52575df9aa0a1a73b3b74c57f39865f2464046955a5fde3031938b12",
+   "used_by": [
+    "key:baseline"
+   ],
+   "codec_name": "h264",
+   "width": 960,
+   "height": 360,
+   "r_frame_rate": "12/1",
+   "duration_seconds": 239.666667
+  },
+  {
+   "path": "assets/pick-key-history.mp4",
+   "bytes": 3203871,
+   "sha256": "07d08254aa2a8485f9d5b2cd438eb6cba32deb84ff417a915479adfc71f1a87f",
+   "used_by": [
+    "key:history"
+   ],
+   "codec_name": "h264",
+   "width": 960,
+   "height": 360,
+   "r_frame_rate": "12/1",
+   "duration_seconds": 75.833333
+  },
+  {
+   "path": "assets/plush-20261014.mp4",
+   "bytes": 17189880,
+   "sha256": "ab1c873a3d84242108b060c6f534f8746586b46307a639ae8f8ef47292fff6a1",
+   "used_by": [
+    "reach_plush"
+   ],
+   "codec_name": "h264",
+   "width": 1280,
+   "height": 480,
+   "r_frame_rate": "15/1",
+   "duration_seconds": 279.866667
+  },
+  {
+   "path": "assets/poster-bbq.jpg",
+   "bytes": 26634,
+   "sha256": "9d9a9cd3af8fc0f953aa9ab78fcb88b871f0e229c3c1028cddbe6bf7d62e237b",
+   "used_by": [
+    "bbq:poster"
+   ]
+  },
+  {
+   "path": "assets/poster-bottle_verify.jpg",
+   "bytes": 30942,
+   "sha256": "c4b5f0b85cc62621365d08998fb453f928fa5a66d004b8d26c66e251a3f37d7a",
+   "used_by": [
+    "stand_bottle:poster"
+   ]
+  },
+  {
+   "path": "assets/poster-bread.jpg",
+   "bytes": 107317,
+   "sha256": "3cb13632e5b171d3ae528e29edb2c10b83a1e31311765e79aea3b2801075fecb",
+   "used_by": [
+    "bread:poster"
+   ]
+  },
+  {
+   "path": "assets/poster-plush-20261014.jpg",
+   "bytes": 142402,
+   "sha256": "82693fd314d89b39a730ec75827f2a0b96c9c141e04a8a34eed4582ebc374417",
+   "used_by": [
+    "reach_plush:poster"
+   ]
+  },
+  {
+   "path": "assets/poster-sponge_square.jpg",
+   "bytes": 23747,
+   "sha256": "a52cec84f81b428a0a442da4858e6ab938804b6fa401a74391582e300008835e",
+   "used_by": [
+    "sponge_square:poster"
+   ]
+  },
+  {
+   "path": "assets/poster-sponge_triangle.jpg",
+   "bytes": 23549,
+   "sha256": "2bf7d36b0152654b931b21e580e6a3234025ce1545a71232fde4cb670a891c8e",
+   "used_by": [
+    "sponge_triangle:poster"
+   ]
+  },
+  {
+   "path": "assets/poster-tighten_hex_screw.jpg",
+   "bytes": 65267,
+   "sha256": "d6bfd0416924ef98399f72f18da47090329c2a248054d41978998d373c58f9a3",
+   "used_by": [
+    "tighten_hex_screw:poster"
+   ]
+  },
+  {
+   "path": "assets/poster-towel_expert_2.jpg",
+   "bytes": 23457,
+   "sha256": "ff84811ba1e4c8504ee0f70f1179c4ca04f125d02bb62f3e2634ea973f42a0af",
+   "used_by": [
+    "towel_expert:poster"
+   ]
+  },
+  {
+   "path": "assets/poster-towel_recovery_2.jpg",
+   "bytes": 22435,
+   "sha256": "5c3936ccd0aa3c8e29d27b79e7d3a8218e567785f6b1aa8f62d42dede57ee8e4",
+   "used_by": [
+    "towel_recovery:poster"
+   ]
+  },
+  {
+   "path": "assets/sponge-square-reference.mp4",
+   "bytes": 214404,
+   "sha256": "6f24dfd011c9597d2ffae7db70682574db90a814dc46b9803a0db94bb5172070",
+   "used_by": [
+    "sponge_square:demonstration"
+   ],
+   "codec_name": "h264",
+   "width": 640,
+   "height": 288,
+   "r_frame_rate": "1/1",
+   "duration_seconds": 12.0
+  },
+  {
+   "path": "assets/sponge-square.mp4",
+   "bytes": 2532891,
+   "sha256": "2d8842bcfbd6dea102707e9f1c488271777b2176136f948e28a8b36d8b1bd297",
+   "used_by": [
+    "sponge_square"
+   ],
+   "codec_name": "h264",
+   "width": 640,
+   "height": 480,
+   "r_frame_rate": "15/1",
+   "duration_seconds": 132.2
+  },
+  {
+   "path": "assets/sponge-triangle-reference.mp4",
+   "bytes": 306688,
+   "sha256": "7f92a3b13b5fc234fdd5005053fdcc3c98c9168e56fe91ab06ccce0e0b442a62",
+   "used_by": [
+    "sponge_triangle:demonstration"
+   ],
+   "codec_name": "h264",
+   "width": 640,
+   "height": 288,
+   "r_frame_rate": "1/1",
+   "duration_seconds": 13.0
+  },
+  {
+   "path": "assets/sponge-triangle.mp4",
+   "bytes": 1869438,
+   "sha256": "9927f583771ff73e2080863cfc4544a69f12bd3e7afb4e406341b4225185085d",
+   "used_by": [
+    "sponge_triangle"
+   ],
+   "codec_name": "h264",
+   "width": 640,
+   "height": 480,
+   "r_frame_rate": "15/1",
+   "duration_seconds": 98.6
+  },
+  {
+   "path": "assets/tighten-hex-screw.mp4",
+   "bytes": 20220980,
+   "sha256": "e1d7c1fc11b02c122c24c6a587c606417ee85f509791ed0407f118def93ffea7",
+   "used_by": [
+    "tighten_hex_screw"
+   ],
+   "codec_name": "h264",
+   "width": 960,
+   "height": 480,
+   "r_frame_rate": "15/1",
+   "duration_seconds": 618.266667
+  },
+  {
+   "path": "assets/towel-expert-demo-2.mp4",
+   "bytes": 231221,
+   "sha256": "c8b1b17fd1463b93be2ab6013f84d054e3907577937ff6a0155f0f5249b5ff7c",
+   "used_by": [
+    "towel_expert:demonstration"
+   ],
+   "codec_name": "h264",
+   "width": 640,
+   "height": 480,
+   "r_frame_rate": "1/1",
+   "duration_seconds": 13.0
+  },
+  {
+   "path": "assets/towel-expert-2.mp4",
+   "bytes": 5241997,
+   "sha256": "563dfba1d279bf1f11e75b0a8a6af32bc2be60d6bb9d15b3c828940d16f16af9",
+   "used_by": [
+    "towel_expert"
+   ],
+   "codec_name": "h264",
+   "width": 640,
+   "height": 480,
+   "r_frame_rate": "15/1",
+   "duration_seconds": 261.8
+  },
+  {
+   "path": "assets/towel-recovery-demo-2.mp4",
+   "bytes": 122550,
+   "sha256": "5d767e7f32a42efcb9f11acf61e5f25fa330f1f178f694221cde1b88ef1e6da3",
+   "used_by": [
+    "towel_recovery:demonstration"
+   ],
+   "codec_name": "h264",
+   "width": 640,
+   "height": 480,
+   "r_frame_rate": "1/1",
+   "duration_seconds": 13.0
+  },
+  {
+   "path": "assets/towel-recovery-2.mp4",
+   "bytes": 5632070,
+   "sha256": "55738f2668820ce1e70cc4464f2e78a65a77cc46f149dec3408e100f72915e7d",
+   "used_by": [
+    "towel_recovery"
+   ],
+   "codec_name": "h264",
+   "width": 640,
+   "height": 480,
+   "r_frame_rate": "15/1",
+   "duration_seconds": 293.2
+  },
+  {
+   "path": "assets/sort-memory.mp4",
+   "used_by": [
+    "sort_memory"
+   ]
+  },
+  {
+   "path": "assets/poster-sort_memory.jpg",
+   "used_by": [
+    "sort_memory:poster"
+   ]
+  },
+  {
+   "path": "assets/sort-experience.mp4",
+   "used_by": [
+    "sort_experience"
+   ]
+  },
+  {
+   "path": "assets/poster-sort_experience.jpg",
+   "used_by": [
+    "sort_experience:poster"
+   ]
+  }
+ ]
 }

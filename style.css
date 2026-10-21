@@ -149,3 +149,9 @@ html{scroll-padding-top:var(--section-offset,96px)}.exhibit[data-detailed] .deci
 .key-insight .key-num{font-style:normal;font-weight:700;color:var(--fail)}
 .key-insight.fail{background:#f7e8e0;border-color:#ddc0ae}
 .key-insight.fail small,.key-insight.fail>span{color:var(--fail)}
+
+.opening .authors{margin:26px 0 0;max-width:none;font-size:clamp(13px,1.05vw,15px);line-height:1.75;color:var(--ink)}
+
+.opening .authors sup{color:var(--accent);font-size:.66em;vertical-align:super;line-height:0;letter-spacing:.02em}
+.opening .affiliations{display:flex;flex-wrap:wrap;gap:3px 22px;margin:9px 0 0;max-width:1060px;font-size:clamp(12px,.95vw,13.5px);line-height:1.7;color:var(--muted)}
+.opening .affiliations sup{color:var(--accent);font-size:.78em;vertical-align:super;line-height:0;margin-right:3px}

@@ -155,3 +155,10 @@ html{scroll-padding-top:var(--section-offset,96px)}.exhibit[data-detailed] .deci
 .opening .authors sup{color:var(--accent);font-size:.66em;vertical-align:super;line-height:0;letter-spacing:.02em}
 .opening .affiliations{display:flex;flex-wrap:wrap;gap:3px 22px;margin:9px 0 0;max-width:1060px;font-size:clamp(12px,.95vw,13.5px);line-height:1.7;color:var(--muted)}
 .opening .affiliations sup{color:var(--accent);font-size:.78em;vertical-align:super;line-height:0;margin-right:3px}
+
+#cite .section-heading{margin-bottom:18px}
+.cite-block{position:relative;border:1px solid var(--line);background:var(--soft);border-radius:3px;padding:18px 20px;overflow-x:auto}
+.cite-block pre{margin:0}
+.cite-block code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.75;color:var(--ink);white-space:pre}
+.cite-copy{position:absolute;top:10px;right:10px;font:11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em;padding:6px 11px;border:1px solid var(--line);border-radius:2px;background:var(--paper);color:var(--muted);cursor:pointer}
+.cite-copy:hover{border-color:var(--accent);color:var(--accent)}

@@ -558,3 +558,12 @@ new ResizeObserver(drawWorkflow).observe(flowMap);selectFlow(6);
   addEventListener('scroll', () => { if (open) { place(); mark(); } }, { passive: true });
   addEventListener('resize', () => { if (open) place(); });
 })();
+
+// BibTeX copy. Clipboard writes are refused in some contexts, so fall back to selecting the text.
+document.querySelectorAll('.cite-copy').forEach(b=>b.addEventListener('click',async()=>{
+ const code=b.parentElement.querySelector('code');
+ try{await navigator.clipboard.writeText(code.textContent);b.textContent='Copied';}
+ catch(_){const r=document.createRange();r.selectNodeContents(code);
+  const sel=getSelection();sel.removeAllRanges();sel.addRange(r);b.textContent='Select and copy';}
+ setTimeout(()=>{b.textContent='Copy';},1800);
+}));

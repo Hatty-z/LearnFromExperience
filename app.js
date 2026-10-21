@@ -42,7 +42,7 @@ function evidenceMarkup(e) {
 }
 function playerMarkup(key, options={}) {
  const d=DATA[key],id=`player-${++serial}`;
- const mode=key==='reach_plush'?'plush':key==='bread'?'wide':key==='stand_bottle'?'bottle':key==='hex'?'hex':key==='tighten_hex_screw'?'wrench':'';
+ const mode=key==='reach_plush'?'plush':key==='stand_bottle'?'bottle':key==='hex'?'hex':key==='tighten_hex_screw'?'wrench':'';
  const trace=d.trace?`<details class="full-trace"><summary>${esc(d.traceLabel||'Full recorded trace')}</summary><p>Verbatim recorded notes. Click a timestamp to inspect the corresponding observation.</p><ol>${d.trace.map(n=>`<li><button class="trace-seek" data-time="${n.t}">${esc(n.call)} · ${clock(n.t)}</button><span>${esc(n.text)}</span></li>`).join('')}</ol></details>`:'';
  return `<article class="exhibit" data-case="${key}" id="${id}" ${d.trace?'data-detailed="true"':''}><div class="exhibit-title"><h3>${esc(d.title)}</h3>${d.result?`<span class="result ${(['hex','towel_expert'].includes(key)||d.outcomeStatus==='unconfirmed')?'failure':''}">${esc(d.result)}</span>`:''}</div>${d.keyInsight?`<button class="key-insight" data-key-call="${esc(d.keyCall)}"><small>KEY DECISION · ${esc(d.keyCall)}</small><strong>${esc(d.keyInsight)}</strong><span>Inspect the turning point →</span></button>`:''}<div class="exhibit-body"><div class="screen-column"><div class="screen ${mode}"><video class="main-video" controls playsinline preload="metadata" poster="assets/${esc(d.poster||`poster-${key}.jpg`)}" src="assets/${esc(d.src)}"></video><span class="screen-label">${esc(d.screenLabel||(key==='bread'?'COMPILED · VARIABLE SPEED':key==='hex'?'TOP / RIGHT WRIST':'RECORDED EXECUTION'))}</span><div class="overlay-caption" aria-live="off"></div>${options.demo?`<div class="input-inset"><span>HUMAN DEMONSTRATION ·<br>SAMPLED INPUT</span><video class="demo-video" controls playsinline preload="metadata" src="assets/${esc(d.demo)}"></video></div>`:''}</div><div class="transport"><button class="play icon-button" aria-label="Play ${esc(d.title)}">▶</button><input class="scrub" aria-label="${esc(d.title)} timeline" type="range" min="0" max="${d.duration}" value="0" step="0.05"><output>0:00 / ${clock(d.duration)}</output><select aria-label="${esc(d.title)} playback speed">${d.timeScale?`<option value="${1/d.timeScale}">1× recorded</option><option value="${2/d.timeScale}">2× recorded</option><option value="1" selected>${d.timeScale}× recorded</option>`:'<option value="1">1×</option><option value="2">2×</option><option value="4">4×</option><option value="8">8×</option>'}</select><button class="expand" aria-label="Fullscreen ${esc(d.title)}">⛶</button></div><div class="seek-status" role="status"></div>${d.trace||d.nodes.some(n=>n.evidence)?'<div class="reasoning-panel" aria-live="polite"></div>':''}</div><aside class="decision-rail"><div class="rail-title"><span>DECISION PATH</span><span>Click to inspect ↓</span></div><div class="path"><svg class="path-lines" aria-hidden="true"></svg>${nodeMarkup(d)}</div><div class="action-note"></div></aside></div><div class="exhibit-foot">${trace}</div></article>`;
 }
@@ -327,17 +327,19 @@ function renderPair(container, a, b, extra) {
 }
 function renderSortPair(c){renderPair(c,'sort_memory','sort_experience',
  'No planner in this configuration. The container binding survives only in the conversation window.');}
+function renderBreadPair(c){renderPair(c,'bread_memory','bread_experience',
+ 'No planner and no experience store in this configuration. Nothing is carried in from an earlier run, and what this one learns about the tong is discarded when it ends.');}
 function renderDrawerPair(c){renderPair(c,'drawer_memory','drawer_experience',
  'No planner and no feedback module in this configuration. Nothing reaches the actor but its own conversation window.');}
 function renderTowel(){const c=document.getElementById('context-content');stopInside(c);c.innerHTML=`<div class="towel-pair">${playerMarkup('towel_expert',{demo:true})}${playerMarkup('towel_recovery',{demo:true})}</div>`;c.querySelectorAll('.exhibit').forEach(root=>bindPlayer(root));}
 document.querySelectorAll('[data-context]').forEach(b=>b.addEventListener('click',()=>{setTabs(b,'[data-context]');if(b.dataset.context==='sponge')renderSponge();else if(b.dataset.context==='towel')renderTowel();else renderPlayer(document.getElementById('context-content'),'bbq');}));
 document.querySelectorAll('[data-spatial]').forEach(b=>b.addEventListener('click',()=>{setTabs(b,'[data-spatial]');renderPlayer(document.getElementById('spatial-content'),b.dataset.spatial);}));
-document.querySelectorAll('[data-harness]').forEach(b=>b.addEventListener('click',()=>{setTabs(b,'[data-harness]');const c=document.getElementById('harness-content');stopInside(c);document.querySelector('.bread-metrics').hidden=b.dataset.harness!=='bread';if(b.dataset.harness==='bread')renderPlayer(c,'bread');else if(b.dataset.harness==='sort')renderSortPair(c);else renderDrawerPair(c);}));
+document.querySelectorAll('[data-harness]').forEach(b=>b.addEventListener('click',()=>{setTabs(b,'[data-harness]');const c=document.getElementById('harness-content');stopInside(c);if(b.dataset.harness==='bread')renderBreadPair(c);else if(b.dataset.harness==='sort')renderSortPair(c);else renderDrawerPair(c);}));
 // Arrow keys work across each tab group without adding more visible controls.
 document.querySelectorAll('[role=tablist]').forEach(group=>group.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;const tabs=[...group.querySelectorAll('[role=tab]')];let i=tabs.indexOf(document.activeElement);if(i<0)return;e.preventDefault();i=e.key==='Home'?0:e.key==='End'?tabs.length-1:(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;tabs[i].focus();tabs[i].click();}));
 window.addEventListener('resize',()=>document.querySelectorAll('.exhibit').forEach(drawConnectors));
 renderPlayer(document.getElementById('precision-content'),'tighten_hex_screw');
-renderSponge();renderPlayer(document.getElementById('spatial-content'),'reach_plush');renderPlayer(document.getElementById('harness-content'),'bread');
+renderSponge();renderPlayer(document.getElementById('spatial-content'),'reach_plush');renderBreadPair(document.getElementById('harness-content'));
 
 
 
@@ -463,24 +465,6 @@ new ResizeObserver(drawWorkflow).observe(flowMap);selectFlow(6);
  }).catch(e=>{host.innerHTML='<p class="error-message">Comparison could not be loaded: '+esc(e.message)+'</p>';});
 })();
 
-// Evidence shortcuts reuse the existing players and their recorded clocks.
-function openComponentEvidence(component) {
- let player;
- if(component==='memory'){
-  setTabs(document.querySelector('[data-pick="cable_tie"]'),'[data-pick]');
-  player=renderGrasp('cable_tie');player.seekers.history(53.6);
- }else if(component==='plan'){
-  player=renderPlayer(document.getElementById('precision-content'),'tighten_hex_screw');
-  player.seek(DATA.tighten_hex_screw.nodes.find(n=>n.call==='C76').t);
- }else{
-  setTabs(document.querySelector('[data-harness="bread"]'),'[data-harness]');
-  document.querySelector('.bread-metrics').hidden=false;
-  player=renderPlayer(document.getElementById('harness-content'),'bread');player.seek(DATA.bread.nodes.find(n=>n.call==='C169').t);
- }
- player.root.scrollIntoView({behavior:'smooth',block:'start'});
- const focus=player.root.querySelector(component==='memory'?'.grasp-condition[data-condition="history"] .grasp-play':'.play');focus?.focus({preventScroll:true});
-}
-document.querySelectorAll('[data-component]').forEach(b=>b.addEventListener('click',()=>openComponentEvidence(b.dataset.component)));
 
 // Native anchors remain usable without JS; scroll tracking adds location feedback.
 (() => {

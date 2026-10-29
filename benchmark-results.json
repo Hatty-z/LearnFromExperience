@@ -262,7 +262,7 @@
   },
   {
    "id": "pick_key",
-   "label": "Pick up keys on a ring",
+   "label": "Pick up a key",
    "capabilities": [
     "fine"
    ],

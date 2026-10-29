@@ -162,3 +162,7 @@ html{scroll-padding-top:var(--section-offset,96px)}.exhibit[data-detailed] .deci
 .cite-block code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.75;color:var(--ink);white-space:pre}
 .cite-copy{position:absolute;top:10px;right:10px;font:11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em;padding:6px 11px;border:1px solid var(--line);border-radius:2px;background:var(--paper);color:var(--muted);cursor:pointer}
 .cite-copy:hover{border-color:var(--accent);color:var(--accent)}
+
+a.paper-link{cursor:pointer;text-decoration:none;color:var(--ink)}
+a.paper-link:hover{border-color:var(--accent);color:var(--accent)}
+a.paper-link:hover i{color:var(--accent)}

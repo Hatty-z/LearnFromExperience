@@ -166,3 +166,4 @@ html{scroll-padding-top:var(--section-offset,96px)}.exhibit[data-detailed] .deci
 a.paper-link{cursor:pointer;text-decoration:none;color:var(--ink)}
 a.paper-link:hover{border-color:var(--accent);color:var(--accent)}
 a.paper-link:hover i{color:var(--accent)}
+.towel-pair.trio{grid-template-columns:repeat(3,minmax(0,1fr))}.towel-pair.trio .exhibit-title{min-height:0}@media(max-width:1150px){.towel-pair.trio{grid-template-columns:1fr}.towel-pair.trio .exhibit-title{min-height:0}}

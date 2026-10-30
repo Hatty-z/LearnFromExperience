@@ -314,9 +314,10 @@ function renderSponge() {
  const apply=()=>container.querySelectorAll('.trail').forEach(t=>t.classList.toggle('is-off',!toggle.checked));
  toggle.addEventListener('change',apply);apply();
 }
-function renderPair(container, a, b, extra) {
+function renderPair(container, a, b, extra) { renderGroup(container,[a,b],extra,''); }
+function renderGroup(container, keys, extra, cls) {
  stopInside(container);
- container.innerHTML=`<div class="towel-pair sort-pair">${playerMarkup(a)}${playerMarkup(b)}</div>`;
+ container.innerHTML=`<div class="towel-pair sort-pair${cls?' '+cls:''}">${keys.map(k=>playerMarkup(k)).join('')}</div>`;
  container.querySelectorAll('.exhibit').forEach(root=>{
   const d=DATA[root.dataset.case];bindPlayer(root);
   const list=d.checklist,col=root.querySelector('.screen-column');
@@ -330,7 +331,7 @@ function renderPair(container, a, b, extra) {
 }
 function renderSortPair(c){renderPair(c,'sort_memory','sort_experience',
  'No planner in this configuration. The container binding survives only in the conversation window.');}
-function renderBreadPair(c){renderPair(c,'bread_early','bread_late','');}
+function renderBreadPair(c){renderGroup(c,['bread_run1','bread_run2','bread_run3'],'','trio');}
 function renderDrawerPair(c){renderPair(c,'drawer_memory','drawer_experience',
  'No planner and no feedback module in this configuration. Nothing reaches the actor but its own conversation window.');}
 function renderTowel(){const c=document.getElementById('context-content');stopInside(c);c.innerHTML=`<div class="towel-pair">${playerMarkup('towel_expert',{demo:true})}${playerMarkup('towel_recovery',{demo:true})}</div>`;c.querySelectorAll('.exhibit').forEach(root=>bindPlayer(root));}

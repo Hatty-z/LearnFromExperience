@@ -53,6 +53,19 @@
    ]
   },
   {
+   "path": "assets/lexp-overview.mp4",
+   "bytes": 36988276,
+   "sha256": "a489c06ba6e18e32b39edcb137014f866cbb00f266245bf62310404a8c97ab6f",
+   "used_by": [
+    "overview"
+   ],
+   "codec_name": "h264",
+   "width": 1920,
+   "height": 1080,
+   "r_frame_rate": "30/1",
+   "duration_seconds": 359.134
+  },
+  {
    "path": "assets/pick-ball-baseline.mp4",
    "bytes": 10655699,
    "sha256": "08093b11cacf6d5276fc4f0b5d7fcb0e5a85e5815aea9eb943133d0aded1be18",
@@ -194,11 +207,31 @@
    ]
   },
   {
+   "path": "assets/poster-lexp-overview.jpg",
+   "bytes": 89413,
+   "sha256": "11ae316c5cefc3e5610a680ed9dc044ac2ad589ff5863188bf1ea5aecfd186d9",
+   "used_by": [
+    "overview:poster"
+   ]
+  },
+  {
    "path": "assets/poster-plush-20261014.jpg",
    "bytes": 142402,
    "sha256": "82693fd314d89b39a730ec75827f2a0b96c9c141e04a8a34eed4582ebc374417",
    "used_by": [
     "reach_plush:poster"
+   ]
+  },
+  {
+   "path": "assets/poster-sort_experience.jpg",
+   "used_by": [
+    "sort_experience:poster"
+   ]
+  },
+  {
+   "path": "assets/poster-sort_memory.jpg",
+   "used_by": [
+    "sort_memory:poster"
    ]
   },
   {
@@ -239,6 +272,18 @@
    "sha256": "5c3936ccd0aa3c8e29d27b79e7d3a8218e567785f6b1aa8f62d42dede57ee8e4",
    "used_by": [
     "towel_recovery:poster"
+   ]
+  },
+  {
+   "path": "assets/sort-experience.mp4",
+   "used_by": [
+    "sort_experience"
+   ]
+  },
+  {
+   "path": "assets/sort-memory.mp4",
+   "used_by": [
+    "sort_memory"
    ]
   },
   {
@@ -307,19 +352,6 @@
    "duration_seconds": 618.266667
   },
   {
-   "path": "assets/towel-expert-demo-2.mp4",
-   "bytes": 231221,
-   "sha256": "c8b1b17fd1463b93be2ab6013f84d054e3907577937ff6a0155f0f5249b5ff7c",
-   "used_by": [
-    "towel_expert:demonstration"
-   ],
-   "codec_name": "h264",
-   "width": 640,
-   "height": 480,
-   "r_frame_rate": "1/1",
-   "duration_seconds": 13.0
-  },
-  {
    "path": "assets/towel-expert-2.mp4",
    "bytes": 5241997,
    "sha256": "563dfba1d279bf1f11e75b0a8a6af32bc2be60d6bb9d15b3c828940d16f16af9",
@@ -333,11 +365,11 @@
    "duration_seconds": 261.8
   },
   {
-   "path": "assets/towel-recovery-demo-2.mp4",
-   "bytes": 122550,
-   "sha256": "5d767e7f32a42efcb9f11acf61e5f25fa330f1f178f694221cde1b88ef1e6da3",
+   "path": "assets/towel-expert-demo-2.mp4",
+   "bytes": 231221,
+   "sha256": "c8b1b17fd1463b93be2ab6013f84d054e3907577937ff6a0155f0f5249b5ff7c",
    "used_by": [
-    "towel_recovery:demonstration"
+    "towel_expert:demonstration"
    ],
    "codec_name": "h264",
    "width": 640,
@@ -359,28 +391,17 @@
    "duration_seconds": 293.2
   },
   {
-   "path": "assets/sort-memory.mp4",
+   "path": "assets/towel-recovery-demo-2.mp4",
+   "bytes": 122550,
+   "sha256": "5d767e7f32a42efcb9f11acf61e5f25fa330f1f178f694221cde1b88ef1e6da3",
    "used_by": [
-    "sort_memory"
-   ]
-  },
-  {
-   "path": "assets/poster-sort_memory.jpg",
-   "used_by": [
-    "sort_memory:poster"
-   ]
-  },
-  {
-   "path": "assets/sort-experience.mp4",
-   "used_by": [
-    "sort_experience"
-   ]
-  },
-  {
-   "path": "assets/poster-sort_experience.jpg",
-   "used_by": [
-    "sort_experience:poster"
-   ]
+    "towel_recovery:demonstration"
+   ],
+   "codec_name": "h264",
+   "width": 640,
+   "height": 480,
+   "r_frame_rate": "1/1",
+   "duration_seconds": 13.0
   }
  ]
 }
